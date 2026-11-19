@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Academic and professional portfolio of Getaneh Tilahun, Software Engineering lecturer and academic professional at the University of Gondar.">
+<meta name="theme-color" content="#0b766e">
+<title>Getaneh Tilahun | Academic &amp; Professional Portfolio</title>
+<style>
+:root{
+  --bg:#f5f8f6;--surface:#ffffff;--surface2:#eaf2ef;--ink:#132d35;--muted:#61747a;
+  --line:#d9e4df;--accent:#087c73;--accent2:#c8e86c;--navy:#102d38;
+  --shadow:0 18px 50px rgba(13,48,54,.10);--radius:22px;--header:74px
+}
+body.dark{
+  --bg:#0b171c;--surface:#12242b;--surface2:#1a3037;--ink:#eaf3ef;--muted:#a8bbb8;
+  --line:#294148;--accent:#69c9bc;--accent2:#d0ed7c;--navy:#071116;
+  --shadow:0 18px 50px rgba(0,0,0,.28)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header) + 18px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;transition:background .25s,color .25s}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+.container{width:min(1160px,calc(100% - 42px));margin-inline:auto}
+.progress{position:fixed;z-index:1000;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+header{height:var(--header);position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.header-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-weight:900;font-size:1.35rem;letter-spacing:-1.5px}
+.brand span{color:var(--accent)}
+.nav-wrap{display:flex;align-items:center;gap:25px}
+nav{display:flex;gap:22px;align-items:center}
+nav a{font-size:.88rem;font-weight:650;color:var(--muted);transition:color .2s}
+nav a:hover,nav a.active{color:var(--accent)}
+.header-actions{display:flex;gap:9px;align-items:center}
+.icon-btn,.menu-btn{width:42px;height:42px;border:1px solid var(--line);border-radius:13px;background:var(--surface);color:var(--ink);display:grid;place-items:center;font-size:1.1rem}
+.menu-btn{display:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid transparent;border-radius:13px;padding:12px 17px;font-weight:750;font-size:.92rem;transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.secondary{background:var(--surface);border-color:var(--line);color:var(--ink)}
+.btn.small{padding:9px 13px;font-size:.84rem}
+.hero{padding:76px 0 70px;overflow:hidden;position:relative}
+.hero:before{content:"";position:absolute;width:540px;height:540px;border-radius:50%;right:-170px;top:-180px;background:radial-gradient(circle,var(--surface2),transparent 68%);pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.12fr .88fr;gap:54px;align-items:center}
+.kicker{font-size:.75rem;font-weight:850;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin:0 0 16px}
+h1,h2,h3,p{margin-top:0}
+h1{font-size:clamp(3.2rem,7vw,6rem);letter-spacing:-.075em;line-height:.96;margin-bottom:21px}
+h1 span{color:var(--accent)}
+.hero h2{font-size:1.22rem;line-height:1.35;margin-bottom:16px;letter-spacing:-.025em}
+.lead{max-width:650px;color:var(--muted);font-size:1.03rem}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:27px 0}
+.meta{display:flex;flex-wrap:wrap;gap:9px}
+.pill{padding:7px 11px;border-radius:99px;background:var(--surface2);font-size:.78rem;color:var(--muted);font-weight:700}
+.profile-art{min-height:390px;display:grid;place-items:center;position:relative}
+.ring{position:absolute;width:min(360px,90%);aspect-ratio:1;border:1px solid var(--line);border-radius:50%}
+.ring:after{content:"";position:absolute;inset:35px;border:1px dashed var(--line);border-radius:50%}
+.profile-card{position:relative;z-index:1;width:min(350px,90%);padding:26px;border-radius:24px;background:linear-gradient(145deg,#0d333d,#10232d);color:#e8f3ed;box-shadow:0 28px 70px rgba(9,45,52,.25);transform:rotate(-2deg)}
+.card-top{display:flex;justify-content:space-between;align-items:center;color:#9ebbb3;font-size:.75rem}
+.status{display:inline-flex;align-items:center;gap:7px}
+.status:before{content:"";width:8px;height:8px;background:#9bdc8b;border-radius:50%;box-shadow:0 0 0 5px #9bdc8b22}
+.terminal{margin:34px 0 30px;font: .92rem/2.1 ui-monospace,SFMono-Regular,Consolas,monospace;color:#cde1d7}
+.terminal .dim{color:#63858a}.terminal .kw{color:#d59bea}.terminal .val{color:#d6e77f}.terminal .fn{color:#86d4b7}
+.card-bottom{padding-top:15px;border-top:1px solid #31535a;display:flex;justify-content:space-between;letter-spacing:1.2px;font-size:.65rem;color:#aac8bf}
+.float-tag{position:absolute;z-index:2;padding:9px 14px;border-radius:99px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);font-size:.8rem;font-weight:800}
+.float-tag.one{top:44px;right:0}.float-tag.two{bottom:55px;left:0}.float-tag.three{bottom:15px;right:7%;background:var(--accent2);color:#24351b;border:0}
+.section{padding:84px 0}
+.section.alt{background:var(--surface2)}
+.section-head{max-width:700px;margin-bottom:35px}
+.section-head h2{font-size:clamp(2rem,4vw,3rem);line-height:1.08;letter-spacing:-.055em;margin-bottom:13px}
+.section-head p:not(.kicker){color:var(--muted)}
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px}
+.about-note{background:var(--surface);border:1px solid var(--line);padding:27px;border-radius:var(--radius);box-shadow:var(--shadow)}
+.about-note .big{font-size:1.32rem;font-weight:700;line-height:1.5;letter-spacing:-.02em}
+.about-copy{color:var(--muted)}
+.fact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.fact{padding:17px;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+.fact strong{display:block;font-size:1.5rem;color:var(--accent);line-height:1.2}
+.fact span{font-size:.78rem;color:var(--muted)}
+.grid{display:grid;gap:16px}
+.expertise-grid{grid-template-columns:repeat(4,1fr)}
+.info-card{padding:24px;background:var(--surface);border:1px solid var(--line);border-radius:18px;transition:transform .2s,border-color .2s}
+.info-card:hover{transform:translateY(-5px);border-color:var(--accent)}
+.info-icon{width:43px;height:43px;border-radius:13px;background:var(--surface2);display:grid;place-items:center;color:var(--accent);font-size:1.1rem;font-weight:900;margin-bottom:20px}
+.info-card h3{font-size:1.02rem;margin-bottom:8px}
+.info-card p{font-size:.88rem;color:var(--muted);margin-bottom:0}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.skill{padding:18px 20px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.skill-head{display:flex;justify-content:space-between;gap:15px;margin-bottom:12px}
+.skill-head strong{font-size:.93rem}.skill-head span{font-size:.78rem;color:var(--muted)}
+.skill-track{height:9px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.skill-track i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:99px;transition:width 1.2s ease}
+.skill-footnote{font-size:.78rem;color:var(--muted);margin-top:15px}
+.tabs{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:20px}
+.tab-btn,.filter-btn{border:1px solid var(--line);border-radius:99px;padding:9px 14px;background:var(--surface);color:var(--muted);font-weight:750;font-size:.84rem}
+.tab-btn[aria-selected="true"],.filter-btn[aria-pressed="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tab-panel{padding:26px;background:var(--surface);border:1px solid var(--line);border-radius:18px}
+.tab-panel h3{margin-bottom:10px}.tab-panel p,.tab-panel li{color:var(--muted)}
+.course-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.course-chips span{padding:7px 10px;background:var(--surface2);border-radius:9px;font-size:.8rem;font-weight:700}
+.project-tools{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin:22px 0}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.search{width:min(290px,100%);padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);outline:none}
+.search:focus,textarea:focus,input:focus{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 15%,transparent)}
+.project-grid{grid-template-columns:repeat(3,1fr)}
+.project-card{background:var(--surface);border:1px solid var(--line);border-radius:19px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.project-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.project-card[hidden]{display:none!important}
+.project-visual{min-height:155px;background:linear-gradient(135deg,#0c3a43,#14786f);color:#fff;display:flex;align-items:end;justify-content:space-between;padding:20px;position:relative;overflow:hidden}
+.project-visual:after{content:"";position:absolute;width:180px;height:180px;border:1px solid #ffffff38;border-radius:50%;right:-35px;top:-80px;box-shadow:0 0 0 25px #ffffff0a,0 0 0 50px #ffffff08}
+.project-visual .label{font-size:.7rem;letter-spacing:1.4px;font-weight:900;position:relative;z-index:1}
+.project-visual .symbol{font-size:2.1rem;position:relative;z-index:1}
+.project-body{padding:22px;display:flex;flex-direction:column;flex:1}
+.project-type{font-size:.7rem;color:var(--accent);letter-spacing:1.2px;font-weight:900;margin-bottom:9px}
+.project-body h3{font-size:1.12rem;margin-bottom:9px}
+.project-body p{color:var(--muted);font-size:.87rem;flex:1}
+.project-body .btn{align-self:flex-start}
+.no-results{display:none;padding:20px;text-align:center;color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:15px}
+.timeline{border-left:2px solid var(--line);margin-left:8px;padding-left:28px;display:grid;gap:22px}
+.timeline-item{position:relative;padding:4px 0}
+.timeline-item:before{content:"";position:absolute;left:-36px;top:9px;width:13px;height:13px;background:var(--accent);border:4px solid var(--bg);border-radius:50%;box-shadow:0 0 0 1px var(--accent)}
+.timeline-date{font-size:.75rem;color:var(--accent);font-weight:900;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px}
+.timeline-item h3{font-size:1.05rem;margin-bottom:4px}
+.timeline-item p{color:var(--muted);margin-bottom:0;font-size:.9rem}
+.contact-panel{display:grid;grid-template-columns:1fr 1fr;gap:35px;padding:36px;background:var(--navy);border-radius:26px;color:#eff8f3}
+.contact-panel .kicker{color:#9adacb}
+.contact-panel p{color:#b8cec7}
+.contact-links{display:grid;gap:11px}
+.contact-link{background:#ffffff0d;border:1px solid #ffffff20;border-radius:13px;padding:13px 15px;display:flex;justify-content:space-between;gap:15px;align-items:center}
+.contact-link span{color:#9bb9b0;font-size:.78rem}
+.contact-link strong{font-size:.88rem}
+.contact-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}
+.contact-panel .btn.secondary{background:#ffffff12;border-color:#ffffff35;color:#fff}
+footer{padding:28px 0;color:var(--muted);font-size:.82rem}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:22px}
+.modal-backdrop{position:fixed;inset:0;background:#07181ccc;display:none;place-items:center;padding:20px;z-index:500}
+.modal-backdrop.open{display:grid}
+.modal{width:min(600px,100%);background:var(--surface);color:var(--ink);border-radius:22px;padding:30px;box-shadow:0 30px 90px #0005;position:relative;max-height:85vh;overflow:auto}
+.modal-close{position:absolute;right:16px;top:14px;width:38px;height:38px;border:1px solid var(--line);border-radius:11px;background:var(--surface2);color:var(--ink);font-size:1.2rem}
+.modal p{color:var(--muted)}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--navy);color:#fff;padding:11px 16px;border-radius:12px;z-index:800;transition:.25s;font-size:.87rem}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .55s,transform .55s}
+.reveal.visible{opacity:1;transform:none}
+.back-top{position:fixed;right:22px;bottom:22px;width:45px;height:45px;border:0;border-radius:14px;background:var(--accent);color:white;font-size:1.2rem;box-shadow:var(--shadow);opacity:0;pointer-events:none;transform:translateY(10px);transition:.2s;z-index:90}
+.back-top.show{opacity:1;pointer-events:auto;transform:none}
+.empty-note{padding:20px;border:1px dashed var(--line);border-radius:15px;color:var(--muted);background:var(--surface)}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr  .8fr;gap:20px}.expertise-grid{grid-template-columns:repeat(2,1fr)}.project-grid{grid-template-columns:repeat(2,1fr)}nav{gap:13px}nav a{font-size:.8rem}}
+@media(max-width:720px){
+ :root{--header:66px}.container{width:min(100% - 30px,600px)}
+ .menu-btn{display:grid}.nav-wrap{position:relative}.nav-wrap nav{display:none;position:absolute;right:0;top:52px;min-width:220px;padding:13px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:16px;align-items:stretch;gap:3px}
+ .nav-wrap nav.open{display:grid}.nav-wrap nav a{padding:10px 12px;font-size:.9rem}
+ .hero{padding:55px 0 48px}.hero-grid{grid-template-columns:1fr}.hero-copy{text-align:left}.profile-art{min-height:310px;max-width:470px;margin:auto;width:100%}.ring{width:285px}
+ .section{padding:62px 0}.about-grid,.skills-grid,.contact-panel{grid-template-columns:1fr;gap:20px}
+ .project-grid{grid-template-columns:1fr}.project-tools{align-items:stretch}.search{width:100%}
+ .fact-grid{grid-template-columns:1fr 1fr 1fr}.contact-panel{padding:25px}
+}
+@media(max-width:430px){.expertise-grid{grid-template-columns:1fr}.fact-grid{grid-template-columns:1fr}.hero-actions .btn{width:100%}.float-tag.one{right:-4px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+@media print{
+ header,.progress,.hero-actions,.project-tools,.details-action,.back-top,.contact-actions,footer .print-hide{display:none!important}
+ body{background:#fff;color:#111}.section{padding:28px 0;break-inside:avoid}.hero{padding:30px 0}.hero-grid{grid-template-columns:1fr}.profile-art{display:none}
+ .info-card,.project-card,.about-note,.fact,.tab-panel{box-shadow:none;break-inside:avoid;background:#fff}
+ .contact-panel{background:#fff;color:#111;border:1px solid #ddd}.contact-panel p,.contact-link span{color:#333}
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header>
+ <div class="container header-inner">
+  <a class="brand" href="#home" aria-label="Getaneh Tilahun home">GT<span>.</span></a>
+  <div class="nav-wrap">
+   <nav id="mainNav" aria-label="Main navigation">
+    <a href="#about">About</a><a href="#expertise">Expertise</a><a href="#teaching">Teaching</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+   </nav>
+   <div class="header-actions">
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch to dark theme" title="Switch theme">☾</button>
+    <button class="menu-btn" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+   </div>
+  </div>
+ </div>
+</header>
+
+<main id="home">
+<section class="hero">
+ <div class="container hero-grid">
+  <div class="hero-copy">
+   <p class="kicker">Academic · Software Engineering · Development</p>
+   <h1>Getaneh<br><span>Tilahun</span></h1>
+   <h2>Lecturer &amp; Head, Department of Software Engineering</h2>
+   <p class="lead">I am an academic professional at the University of Gondar, connecting computing education with practical software development. My work includes teaching, student project advising, and academic leadership, with interests in programming, software engineering, web and mobile technologies, and database systems.</p>
+   <div class="hero-actions">
+    <a class="btn primary" href="#projects">Explore my work <span>↗</span></a>
+    <a class="btn secondary" href="#contact">Contact me</a>
+    <button class="btn secondary" id="printButton" type="button">Print / Save PDF ⤓</button>
+   </div>
+   <div class="meta"><span class="pill">University of Gondar</span><span class="pill">College of Informatics</span><span class="pill">Ethiopia</span></div>
+  </div>
+  <div class="profile-art" aria-label="Decorative software development profile illustration">
+   <div class="ring"></div>
+   <div class="profile-card">
+    <div class="card-top"><span class="status">Available for collaboration</span><span>GT / 01</span></div>
+    <div class="terminal">
+     <div><span class="dim">01</span> &nbsp;<span class="kw">const</span> focus = [</div>
+     <div><span class="dim">02</span> &nbsp;&nbsp;<span class="val">'teaching'</span>,</div>
+     <div><span class="dim">03</span> &nbsp;&nbsp;<span class="val">'software'</span>,</div>
+     <div><span class="dim">04</span> &nbsp;&nbsp;<span class="val">'impact'</span></div>
+     <div><span class="dim">05</span> ];</div>
+     <div><span class="dim">06</span> &nbsp;<span class="fn">build</span>(knowledge);</div>
+    </div>
+    <div class="card-bottom"><span>LEARN</span><span>BUILD</span><span>CONTRIBUTE</span></div>
+   </div>
+   <span class="float-tag one">Teaching &amp; mentoring</span><span class="float-tag two">Software development</span><span class="float-tag three">Academic leadership</span>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="about">
+ <div class="container about-grid">
+  <div class="section-head">
+   <p class="kicker">About me</p><h2>Bridging academic knowledge and practical technology.</h2>
+   <div class="about-note"><p class="big">“My goal is to help learners understand computing concepts, apply them confidently, and build solutions to real problems.”</p><p class="about-copy">A teaching and mentoring philosophy focused on clarity, practice, collaboration, and continuous learning.</p></div>
+  </div>
+  <div>
+   <p class="about-copy">I hold a BSc and MSc in Computer Science from the University of Gondar. I began my university career as a Graduate Assistant and have served as a lecturer since 2019. I currently lead the Department of Software Engineering in the College of Informatics.</p>
+   <p class="about-copy">My professional interests include programming, software engineering, web and mobile application development, database systems, computer graphics, and computing education. I also advise student projects, including applied industrial software projects.</p>
+   <div class="fact-grid">
+    <div class="fact"><strong>2018</strong><span>BSc in Computer Science</span></div>
+    <div class="fact"><strong>2022</strong><span>MSc in Computer Science</span></div>
+    <div class="fact"><strong>2019–Now</strong><span>University lecturer</span></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section alt" id="expertise">
+ <div class="container">
+  <div class="section-head"><p class="kicker">Professional strengths</p><h2>Areas of expertise</h2><p>Academic practice and technical areas represented in my teaching and professional activities.</p></div>
+  <div class="grid expertise-grid">
+   <article class="info-card"><div class="info-icon">&lt;/&gt;</div><h3>Programming &amp; Computing</h3><p>C++, Python, Java, programming fundamentals, algorithms, and problem-solving.</p></article>
+   <article class="info-card"><div class="info-icon">⌘</div><h3>Software Development</h3><p>Software engineering, web development, mobile application development, and project advising.</p></article>
+   <article class="info-card"><div class="info-icon">▤</div><h3>Computing Education</h3><p>Course delivery, practical demonstrations, student engagement, and programming instruction.</p></article>
+   <article class="info-card"><div class="info-icon">◇</div><h3>Academic Leadership</h3><p>Department coordination, academic planning, quality activities, and institutional service.</p></article>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="skills">
+ <div class="container">
+  <div class="section-head"><p class="kicker">Technical toolkit</p><h2>Skills &amp; working areas</h2><p>Explore the areas represented in my teaching and development interests. Bars indicate focus areas, not independently assessed proficiency scores.</p></div>
+  <div class="skills-grid">
+   <div class="skill"><div class="skill-head"><strong>C++ &amp; programming</strong><span>Core programming</span></div><div class="skill-track"><i data-level="88%"></i></div></div>
+   <div class="skill"><div class="skill-head"><strong>Python &amp; Java</strong><span>Application development</span></div><div class="skill-track"><i data-level="78%"></i></div></div>
+   <div class="skill"><div class="skill-head"><strong>Web development</strong><span>Web technologies</span></div><div class="skill-track"><i data-level="84%"></i></div></div>
+   <div class="skill"><div class="skill-head"><strong>Database systems</strong><span>Data &amp; applications</span></div><div class="skill-track"><i data-level="80%"></i></div></div>
+   <div class="skill"><div class="skill-head"><strong>Computer Graphics</strong><span>Visual computing</span></div><div class="skill-track"><i data-level="76%"></i></div></div>
+   <div class="skill"><div class="skill-head"><strong>Teaching &amp; advising</strong><span>Academic practice</span></div><div class="skill-track"><i data-level="90%"></i></div></div>
+  </div>
+  <p class="skill-footnote">The visual percentages are placeholders for presentation. Adjust or remove them before using the portfolio as a formal skills assessment.</p>
+ </div>
+</section>
+
+<section class="section alt" id="teaching">
+ <div class="container">
+  <div class="section-head"><p class="kicker">Teaching &amp; mentoring</p><h2>From concepts to practical skills</h2><p>Choose a topic below to explore my teaching and academic interests.</p></div>
+  <div class="tabs" role="tablist" aria-label="Teaching areas">
+   <button class="tab-btn" role="tab" id="tab-programming" aria-controls="panel-programming" aria-selected="true" data-tab="programming">Programming</button>
+   <button class="tab-btn" role="tab" id="tab-graphics" aria-controls="panel-graphics" aria-selected="false" data-tab="graphics">Computer Graphics</button>
+   <button class="tab-btn" role="tab" id="tab-systems" aria-controls="panel-systems" aria-selected="false" data-tab="systems">Computer Systems</button>
+   <button class="tab-btn" role="tab" id="tab-advising" aria-controls="panel-advising" aria-selected="false" data-tab="advising">Project advising</button>
+  </div>
+  <div class="tab-panel" id="teachingPanel" role="tabpanel" aria-labelledby="tab-programming">
+   <h3 id="teachingTitle">Programming &amp; problem solving</h3>
+   <p id="teachingText">Teaching programming concepts through structured explanations, step-by-step examples, coding exercises, debugging, and practical problem-solving activities.</p>
+   <div class="course-chips" id="teachingChips"><span>C++</span><span>Python</span><span>Java</span><span>Computer Programming</span></div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="projects">
+ <div class="container">
+  <div class="section-head"><p class="kicker">Selected work</p><h2>Projects &amp; academic contributions</h2><p>Open a project card for more context. These summaries are based on the work and teaching activities described in my professional background.</p></div>
+  <div class="project-tools">
+   <div class="filters" role="group" aria-label="Filter project cards">
+    <button class="filter-btn" data-filter="all" aria-pressed="true">All</button>
+    <button class="filter-btn" data-filter="advising" aria-pressed="false">Project advising</button>
+    <button class="filter-btn" data-filter="teaching" aria-pressed="false">Teaching</button>
+    <button class="filter-btn" data-filter="learning" aria-pressed="false">Learning resources</button>
+   </div>
+   <input class="search" id="projectSearch" type="search" placeholder="Search projects…" aria-label="Search projects">
+  </div>
+  <div class="grid project-grid" id="projectGrid">
+   <article class="project-card" data-category="advising" data-search="industrial software public service one stop integration project advising" data-title="Industrial software project advising" data-description="I advised an industrial software project developed for public-service processes and planned integration into a one-stop service environment. The project went through workshop and validation activities, with a cybersecurity audit required before deployment. Add the approved project title, technologies, your exact contribution, and a public demonstration link before publication.">
+    <div class="project-visual"><span class="label">INDUSTRIAL PROJECT</span><span class="symbol">⌘</span></div>
+    <div class="project-body"><p class="project-type">PROJECT ADVISING</p><h3>Industrial software project</h3><p>Advising an applied software project addressing real public-service processes.</p><button class="btn secondary small details-action" type="button">View project details ↗</button></div>
+   </article>
+   <article class="project-card" data-category="teaching" data-search="computer graphics glut visual computing teaching" data-title="Computer Graphics teaching" data-description="Teaching Computer Graphics with visual demonstrations and programming exercises, including graphics programming concepts. Student work and course tasks help connect theoretical principles with practical output. Add specific course projects, technologies, and screenshots when ready.">
+    <div class="project-visual" style="background:linear-gradient(135deg,#17354b,#6652a1)"><span class="label">VISUAL COMPUTING</span><span class="symbol">◉</span></div>
+    <div class="project-body"><p class="project-type">TEACHING</p><h3>Computer Graphics</h3><p>Visual computing instruction, graphics programming, and practical student exercises.</p><button class="btn secondary small details-action" type="button">View project details ↗</button></div>
+   </article>
+   <article class="project-card" data-category="learning" data-search="cpp python assembly programming education exercises youtube" data-title="Programming learning resources" data-description="Creating programming education materials and explanations in areas including C++, Python, Assembly, Java, and web development. The resources aim to support step-by-step learning, practical exercises, and students' independent practice. Add channel links and selected lesson links before publication.">
+    <div class="project-visual" style="background:linear-gradient(135deg,#5a3d27,#b76c35)"><span class="label">PROGRAMMING EDUCATION</span><span class="symbol">{ }</span></div>
+    <div class="project-body"><p class="project-type">LEARNING RESOURCES</p><h3>Programming tutorials &amp; exercises</h3><p>Educational content and practice materials for programming and computing courses.</p><button class="btn secondary small details-action" type="button">View project details ↗</button></div>
+   </article>
+  </div>
+  <p class="no-results" id="noResults">No matching projects. Try another search or category.</p>
+ </div>
+</section>
+
+<section class="section alt" id="experience">
+ <div class="container about-grid">
+  <div class="section-head"><p class="kicker">Academic journey</p><h2>Education &amp; professional experience</h2><p>A concise timeline of my academic and university career.</p></div>
+  <div class="timeline">
+   <article class="timeline-item"><p class="timeline-date">2018</p><h3>BSc in Computer Science</h3><p>University of Gondar, Ethiopia.</p></article>
+   <article class="timeline-item"><p class="timeline-date">October 2018 – 2019</p><h3>Graduate Assistant</h3><p>University of Gondar.</p></article>
+   <article class="timeline-item"><p class="timeline-date">2022</p><h3>MSc in Computer Science</h3><p>University of Gondar, Ethiopia.</p></article>
+   <article class="timeline-item"><p class="timeline-date">2019 – Present</p><h3>Lecturer</h3><p>University of Gondar, College of Informatics.</p></article>
+   <article class="timeline-item"><p class="timeline-date">January 2026 – Present</p><h3>Head, Department of Software Engineering</h3><p>College of Informatics, University of Gondar.</p></article>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="contact">
+ <div class="container">
+  <div class="contact-panel">
+   <div><p class="kicker">Let's connect</p><h2>Open to academic and professional collaboration.</h2><p>For university opportunities, teaching and research collaboration, student project discussions, or software development engagement, please get in touch.</p>
+    <div class="contact-actions"><a class="btn primary" href="mailto:gech2010uog@gmail.com?subject=Professional%20inquiry">Send an email ↗</a><button class="btn secondary" id="copyEmail" type="button">Copy email</button></div>
+   </div>
+   <div class="contact-links">
+    <a class="contact-link" href="mailto:gech2010uog@gmail.com"><span>Email</span><strong>gech2010uog@gmail.com ↗</strong></a>
+    <a class="contact-link" href="tel:+251926368918"><span>Phone</span><strong>+251 926 368 918 ↗</strong></a>
+    <div class="contact-link"><span>Institution</span><strong>University of Gondar, Ethiopia</strong></div>
+    <div class="contact-link"><span>Department</span><strong>Software Engineering</strong></div>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer><div class="container footer-inner"><a class="brand" href="#home">GT<span>.</span></a><span>© <span id="year"></span> Getaneh Tilahun. Academic &amp; professional portfolio.</span><a href="#home">Back to top ↑</a></div></footer>
+
+<div class="modal-backdrop" id="projectModal" aria-hidden="true">
+ <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <button class="modal-close" id="modalClose" type="button" aria-label="Close project details">×</button>
+  <p class="kicker">Project overview</p><h2 id="modalTitle">Project title</h2><p id="modalDescription"></p>
+  <button class="btn primary" id="modalDone" type="button">Close details</button>
+ </section>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<button class="back-top" id="backTop" type="button" aria-label="Back to top">↑</button>
+
+<script>
+(() => {
+ const $ = (selector, root=document) => root.querySelector(selector);
+ const $$ = (selector, root=document) => [...root.querySelectorAll(selector)];
+ const toast = $('#toast');
+ let toastTimer;
+ function notify(message){
+   toast.textContent = message; toast.classList.add('show');
+   clearTimeout(toastTimer); toastTimer = setTimeout(()=>toast.classList.remove('show'),2200);
+ }
+
+ // Current year and print-to-PDF action.
+ $('#year').textContent = new Date().getFullYear();
+ $('#printButton').addEventListener('click', () => window.print());
+
+ // Theme control: works even when browser storage is unavailable.
+ const themeButton = $('#themeToggle');
+ let savedTheme = null;
+ try { savedTheme = localStorage.getItem('gt-portfolio-theme'); } catch(e) {}
+ if (savedTheme === 'dark') document.body.classList.add('dark');
+ function syncTheme(){
+   const dark = document.body.classList.contains('dark');
+   themeButton.textContent = dark ? '☀' : '☾';
+   themeButton.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+ }
+ syncTheme();
+ themeButton.addEventListener('click',()=>{
+   document.body.classList.toggle('dark');
+   try { localStorage.setItem('gt-portfolio-theme',document.body.classList.contains('dark')?'dark':'light'); } catch(e) {}
+   syncTheme();
+   notify(document.body.classList.contains('dark')?'Dark theme enabled':'Light theme enabled');
+ });
+
+ // Mobile navigation.
+ const menuButton = $('#menuToggle'), nav = $('#mainNav');
+ menuButton.addEventListener('click',()=>{
+   const open = nav.classList.toggle('open');
+   menuButton.setAttribute('aria-expanded',String(open));
+   menuButton.textContent = open ? '×' : '☰';
+   menuButton.setAttribute('aria-label',open?'Close menu':'Open menu');
+ });
+ $$('a',nav).forEach(link=>link.addEventListener('click',()=>{
+   nav.classList.remove('open'); menuButton.setAttribute('aria-expanded','false');
+   menuButton.textContent='☰'; menuButton.setAttribute('aria-label','Open menu');
+ }));
+
+ // Teaching tabs.
+ const teachingContent = {
+  programming:{
+   title:'Programming & problem solving',
+   text:'Teaching programming concepts through structured explanations, step-by-step examples, coding exercises, debugging, and practical problem-solving activities.',
+   chips:['C++','Python','Java','Computer Programming']
+  },
+  graphics:{
+   title:'Computer Graphics',
+   text:'Teaching visual computing concepts and graphics programming, with demonstrations and practical exercises that help students connect theory with rendered output.',
+   chips:['Computer Graphics','OpenGL / GLUT','Visual computing','Programming exercises']
+  },
+  systems:{
+   title:'Microprocessor & Assembly',
+   text:'Teaching computer architecture and low-level programming concepts, including the 8086 microprocessor and assembly language programming.',
+   chips:['8086','Assembly language','Computer architecture','Low-level programming']
+  },
+  advising:{
+   title:'Student and industrial project advising',
+   text:'Advising student projects by supporting problem understanding, requirements, design decisions, implementation planning, validation, and presentation of practical software solutions.',
+   chips:['Project advising','Requirements','Software design','Validation']
+  }
+ };
+ $$('.tab-btn').forEach(button=>button.addEventListener('click',()=>{
+   $$('.tab-btn').forEach(item=>item.setAttribute('aria-selected',String(item===button)));
+   const data=teachingContent[button.dataset.tab];
+   $('#teachingPanel').setAttribute('aria-labelledby',button.id);
+   $('#teachingTitle').textContent=data.title;
+   $('#teachingText').textContent=data.text;
+   $('#teachingChips').replaceChildren(...data.chips.map(label=>{
+     const chip=document.createElement('span'); chip.textContent=label; return chip;
+   }));
+ }));
+
+ // Project filters and live search can be combined.
+ let currentFilter='all';
+ const cards=$$('.project-card'), search=$('#projectSearch');
+ function filterProjects(){
+   const query=search.value.trim().toLowerCase();
+   let count=0;
+   cards.forEach(card=>{
+     const categoryMatch=currentFilter==='all'||card.dataset.category===currentFilter;
+     const textMatch=(card.dataset.search+' '+card.dataset.title).toLowerCase().includes(query);
+     const show=categoryMatch&&textMatch;
+     card.hidden=!show; if(show) count++;
+   });
+   $$('.filter-btn').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.filter===currentFilter)));
+   $('#noResults').style.display=count?'none':'block';
+ }
+ $$('.filter-btn').forEach(button=>button.addEventListener('click',()=>{
+   currentFilter=button.dataset.filter; filterProjects();
+ }));
+ search.addEventListener('input',filterProjects);
+
+ // Project detail modal.
+ const modal=$('#projectModal'), modalTitle=$('#modalTitle'), modalDescription=$('#modalDescription');
+ let lastFocused=null;
+ function openModal(card){
+   lastFocused=document.activeElement;
+   modalTitle.textContent=card.dataset.title;
+   modalDescription.textContent=card.dataset.description;
+   modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+   $('#modalClose').focus(); document.body.style.overflow='hidden';
+ }
+ function closeModal(){
+   modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');
+   document.body.style.overflow=''; if(lastFocused) lastFocused.focus();
+ }
+ $$('.details-action').forEach(button=>button.addEventListener('click',()=>openModal(button.closest('.project-card'))));
+ $('#modalClose').addEventListener('click',closeModal);
+ $('#modalDone').addEventListener('click',closeModal);
+ modal.addEventListener('click',event=>{if(event.target===modal) closeModal();});
+ document.addEventListener('keydown',event=>{if(event.key==='Escape'&&modal.classList.contains('open')) closeModal();});
+
+ // Copy email address.
+ $('#copyEmail').addEventListener('click',async()=>{
+   const email='gech2010uog@gmail.com';
+   try { await navigator.clipboard.writeText(email); notify('Email address copied to clipboard'); }
+   catch(e) { notify('Email address: '+email); }
+ });
+
+ // Animated reveal and skill bars.
+ const revealTargets=$$('.info-card, .skill, .section-head, .about-note, .timeline-item, .project-card, .contact-panel');
+ if ('IntersectionObserver' in window) {
+   const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+     if(entry.isIntersecting){
+       entry.target.classList.add('visible');
+       const bar=$('.skill-track i',entry.target); if(bar) bar.style.width=bar.dataset.level;
+       observer.unobserve(entry.target);
+     }
+   }),{threshold:.12});
+   revealTargets.forEach(el=>{el.classList.add('reveal');observer.observe(el);});
+ } else {
+   revealTargets.forEach(el=>el.classList.add('visible'));
+   $$('.skill-track i').forEach(bar=>bar.style.width=bar.dataset.level);
+ }
+
+ // Reading progress and back-to-top.
+ const progress=$('#progress'), backTop=$('#backTop');
+ function scrollUI(){
+   const range=document.documentElement.scrollHeight-window.innerHeight;
+   progress.style.width=(range>0?window.scrollY/range*100:0)+'%';
+   backTop.classList.toggle('show',window.scrollY>450);
+ }
+ window.addEventListener('scroll',scrollUI,{passive:true}); scrollUI();
+ backTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+ // Active section state in the navigation.
+ if('IntersectionObserver' in window){
+   const links=$$('a[href^="#"]',nav);
+   const sections=links.map(link=>$(link.getAttribute('href'))).filter(Boolean);
+   const navObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+     if(entry.isIntersecting) links.forEach(link=>link.classList.toggle('active',link.getAttribute('href')==='#'+entry.target.id));
+   }),{rootMargin:'-38% 0px -52% 0px'});
+   sections.forEach(section=>navObserver.observe(section));
+ }
+})();
+</script>
+</body>
+</html>
